@@ -10,3 +10,4 @@ php ./artisan serve
 - batch processing in queue
 - describe errors in API documentation
 - how to handle duplicates (now skipped silently)
+- move API endpoints to controllers

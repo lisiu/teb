@@ -2,11 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\DateKeys\Date\DatePolicy;
 use App\DateKeys\KeyLettersPolicy;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostDateKeysBatch extends FormRequest
+class PostDateKeysGenerator extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +25,7 @@ class PostDateKeysBatch extends FormRequest
     public function rules(KeyLettersPolicy $keyLettersPolicy)
     {
         return [
-            'range-start' => 'required|date|date_format:Y-m-d',
-            'range-stop' => 'required|date|date_format:Y-m-d',
+            'date' => 'required|date|date_format:Y-m-d',
             'uuid' => 'required|uuid',
             'letters' => "required|array|between:{$keyLettersPolicy->countFrom()},{$keyLettersPolicy->countTo()}",
         ];

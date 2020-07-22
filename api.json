@@ -68,9 +68,9 @@
                 }
             }
         },
-        "/date-keys-batches": {
+        "/date-keys/batches": {
             "post": {
-                "summary": "Create new keys for date range",
+                "summary": "Create and store new keys for date range",
                 "operationId": "createDateKeysForInsert",
                 "requestBody": {
                     "content": {
@@ -90,7 +90,7 @@
                                     "letters": {
                                         "type": "array",
                                         "items": {
-                                          "type": "string"
+                                            "type": "string"
                                         }
                                     }
                                 }
@@ -101,6 +101,55 @@
                 "responses": {
                     "204": {
                         "description": "NO CONTENT"
+                    }
+                }
+            }
+        },
+        "/date-keys/keys": {
+            "post": {
+                "summary": "Create new key for date",
+                "operationId": "createDateKeysForDate",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "string"
+                                    },
+                                    "uuid": {
+                                        "type": "string"
+                                    },
+                                    "letters": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "key": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "key": "01206aca7a7a0a0a9aaaaa1aaa8a4a4a7a7abaaa9aba4a4a7a4aba8aaafa3a7a3ada0320"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

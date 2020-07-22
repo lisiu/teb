@@ -17,11 +17,35 @@ use Illuminate\Support\Facades\Route;
 Route::get('/provinces', function (\App\Provinces\ProvinceRepository $provinceRepository, Request $request) {
     return $provinceRepository->getAllNames();
 });
+
 Route::get('/settings', function (\App\Settings\SettingsProvider $settings, Request $request) {
     return $settings->toArray();
 });
+
 Route::post(
-    '/date-keys-batches',
+    '/date-keys/keys',
+    function (
+        \App\DateKeys\KeyGenerator $keyGenerator,
+        \App\DateKeys\KeyLettersPolicy $keyLettersPolicy,
+        \App\DateKeys\Date\DatePolicy $datePolicy,
+        \App\Http\Requests\PostDateKeysGenerator $request
+    ) {
+        $validatedData = $request->validated();
+        $key = $keyGenerator->create(
+            \Ramsey\Uuid\Uuid::fromString($validatedData['uuid']),
+            \App\DateKeys\KeyLetters::of(
+                $validatedData['letters'],
+                $keyLettersPolicy
+            ),
+            \App\DateKeys\Date\Date::of($validatedData['date'], $datePolicy)
+        );
+
+        return ['key' => (string)$key];
+    }
+);
+
+Route::post(
+    '/date-keys/batches',
     function (
         \App\DateKeys\DateKeysService $service,
         \App\DateKeys\DateKeysRepository $repository,
