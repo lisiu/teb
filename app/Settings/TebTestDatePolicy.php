@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\DateKeys;
+namespace App\Settings;
+
+use App\DateKeys\Date\DatePolicy;
 
 class TebTestDatePolicy implements DatePolicy
 {

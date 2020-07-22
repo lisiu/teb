@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DateKeys;
+namespace App\DateKeys\Date;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Arrayable;

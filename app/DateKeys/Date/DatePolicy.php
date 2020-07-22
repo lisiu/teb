@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DateKeys;
+namespace App\DateKeys\Date;
 
 interface DatePolicy
 {

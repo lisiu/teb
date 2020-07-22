@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\DateKeys;
 
+use App\DateKeys\Date\Date;
+use App\DateKeys\Key\Key;
 use Ramsey\Uuid\UuidInterface;
 
 class KeyGenerator

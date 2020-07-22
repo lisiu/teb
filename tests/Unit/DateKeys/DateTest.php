@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\DateKeys;
 
-use App\DateKeys\Date;
+use App\DateKeys\Date\Date;
 use PHPUnit\Framework\TestCase;
 
 class DateTest extends TestCase

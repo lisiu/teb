@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DateKeys;
+namespace App\DateKeys\Key;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 

@@ -2,11 +2,13 @@
 
 namespace App\DateKeys;
 
+use App\DateKeys\Date\DateCast;
+use App\DateKeys\Key\KeyCast;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property \Carbon\Carbon $date
- * @property \App\DateKeys\Key $keys
+ * @property \App\DateKeys\Key\Key $keys
  */
 class DateKey extends Model
 {

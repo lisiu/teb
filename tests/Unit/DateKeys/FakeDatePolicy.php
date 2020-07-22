@@ -1,7 +1,7 @@
 <?php
 namespace Tests\Unit\DateKeys;
 
-use App\DateKeys\DatePolicy;
+use App\DateKeys\Date\DatePolicy;
 
 class FakeDatePolicy implements DatePolicy
 {

@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\DateKeys;
 
-use App\DateKeys\Date;
+use App\DateKeys\Date\Date;
 use App\DateKeys\KeyGenerator;
 use App\DateKeys\KeyLetters;
 use PHPUnit\Framework\TestCase;
