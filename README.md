@@ -6,6 +6,9 @@ php ./composer.phar install
 php ./artisan serve
 ```
 
+###DOCUMENTATION
+- API documentation: `public/api.json`
+
 ###TODO
 - batch processing in queue
 - describe errors in API documentation

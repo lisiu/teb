@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function (Request $request) {
+    return redirect('/api.json');
+});
+
 Route::get('/provinces', function (\App\Provinces\ProvinceRepository $provinceRepository, Request $request) {
     return $provinceRepository->getAllNames();
 });
