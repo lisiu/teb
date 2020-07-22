@@ -7,3 +7,6 @@ php ./artisan serve
 ```
 
 ###TODO
+- batch processing in queue
+- describe errors in API documentation
+- how to handle duplicates (now skipped silently)

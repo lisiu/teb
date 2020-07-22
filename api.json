@@ -30,6 +30,80 @@
                     }
                 }
             }
+        },
+        "/settings": {
+            "get": {
+                "summary": "Return application settings.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "date-range-start": {
+                                            "type": "string"
+                                        },
+                                        "date-range-stop": {
+                                            "type": "string"
+                                        },
+                                        "key-letters-from": {
+                                            "type": "integer"
+                                        },
+                                        "key-letters-to": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "example": {
+                                        "date-range-start": "2020-01-01",
+                                        "date-range-stop": "2021-01-01",
+                                        "key-letters-from": 10,
+                                        "key-letters-to": 10
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/date-keys-batches": {
+            "post": {
+                "summary": "Create new keys for date range",
+                "operationId": "createDateKeysForInsert",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "range-start": {
+                                        "type": "string"
+                                    },
+                                    "range-stop": {
+                                        "type": "string"
+                                    },
+                                    "uuid": {
+                                        "type": "string"
+                                    },
+                                    "letters": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "NO CONTENT"
+                    }
+                }
+            }
         }
     }
 }
