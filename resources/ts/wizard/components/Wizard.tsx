@@ -37,12 +37,17 @@ const Wizard: FC<WizardProps> = ({settings}: WizardProps) => {
             setStep(step => step - 1)
         }
     }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        return false
+    }
 
     return (
         <Container>
             <Row>
                 <Col>
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                         <StepOne
                             minDate={settings.dateRangeStart}
                             maxDate={settings.dateRangeStop}
