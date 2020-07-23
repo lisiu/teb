@@ -1,8 +1,8 @@
 export interface Settings {
     dateRangeStart: string;
     dateRangeStop: string;
-    keyLettersFrom: string;
-    keyLettersTo: string;
+    keyLettersFrom: number;
+    keyLettersTo: number;
 }
 
 export default class SettingsFactory {
@@ -10,8 +10,8 @@ export default class SettingsFactory {
         return {
             dateRangeStart: data['date-range-start'],
             dateRangeStop: data['date-range-stop'],
-            keyLettersFrom: data['key-letters-from'],
-            keyLettersTo: data['key-letters-to'],
+            keyLettersFrom: parseInt(data['key-letters-from'], 10) || 10,
+            keyLettersTo: parseInt(data['key-letters-to'], 10) || 10,
         }
     }
 }

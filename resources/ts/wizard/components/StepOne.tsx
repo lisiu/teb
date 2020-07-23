@@ -1,13 +1,14 @@
 import * as React from 'react';
-import {Dispatch, FC, useRef, useState} from 'react';
+import {Dispatch, FC, useEffect, useRef, useState} from 'react';
 import Step from "./Step";
 import StepForward from "./StepForward";
 import Card from "react-bootstrap/Card";
-import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
 import Province from "./Province";
 import {WizardData} from "./Wizard";
-import construct = Reflect.construct;
+import axios from "axios";
+import Endpoints from "../../sdk/endpoints";
 
 interface Props extends Step {
     visible: boolean;
@@ -23,6 +24,14 @@ const StepOne: FC<Props> = ({visible, minDate, maxDate, onForward, data, setData
     const emailRef = useRef(null)
     const [isValid, setIsValid] = useState(false)
     const [validRange, setValidRange] = useState(true)
+    const [provinces, setProvinces] = useState<string[]>([])
+    useEffect(() => {
+        axios.get(Endpoints.provinces()).then(result => {
+            setProvinces(result.data)
+            setData({...data, province: result.data[0]})
+        })
+    }, [])
+
 
     const validate = () => {
         const isValidRange = (!dateStartRef.current.value || !dateStopRef.current.value)
@@ -36,9 +45,6 @@ const StepOne: FC<Props> = ({visible, minDate, maxDate, onForward, data, setData
         )
     }
 
-    const handleForward = () => {
-        onForward()
-    }
     const handleDateStartChange = (event) => {
         validate()
         setData({...data, dateStart: event.target.value})
@@ -60,7 +66,7 @@ const StepOne: FC<Props> = ({visible, minDate, maxDate, onForward, data, setData
             <Card.Header as="h5">Krok 1/3</Card.Header>
             <Card.Body>
                 <Form.Group className={'was-validated'}>
-                    <Province data={data} setData={setData}/>
+                    <Province provinces={provinces} data={data} setData={setData}/>
                     <br/>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridFrom">
@@ -112,7 +118,7 @@ const StepOne: FC<Props> = ({visible, minDate, maxDate, onForward, data, setData
                         />
                     </Form.Group>
                 </Form.Group>
-                <StepForward disabled={!isValid} onClick={handleForward}/>
+                <StepForward disabled={!isValid} onClick={onForward}/>
             </Card.Body>
         </Card>
     )

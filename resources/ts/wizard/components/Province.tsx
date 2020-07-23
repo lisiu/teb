@@ -1,23 +1,15 @@
 import * as React from 'react'
-import {Dispatch, FC, useEffect, useState} from "react";
+import {Dispatch, FC} from 'react'
 import Form from "react-bootstrap/Form";
-import axios from "axios";
-import Endpoints from "../../sdk/endpoints";
 import {WizardData} from "./Wizard";
 
-interface ProvinceProps {
+interface Props {
+    provinces: string[],
     data: WizardData;
     setData: Dispatch<WizardData>;
 }
 
-const Province: FC<ProvinceProps> = ({data, setData}: ProvinceProps) => {
-    const [provinces, setProvinces] = useState<string[]>([])
-    useEffect(() => {
-        axios.get(Endpoints.provinces()).then(result => {
-            setProvinces(result.data)
-            setData({...data, province: result.data[0]})
-        })
-    }, [])
+const Province: FC<Props> = ({provinces, data, setData}: Props) => {
     const handleChange = (event) => {
         setData({...data, province: event.target.value})
     }

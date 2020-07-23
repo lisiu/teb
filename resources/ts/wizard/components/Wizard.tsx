@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from "react-bootstrap/Form";
+import { v4 as uuidv4 } from 'uuid';
 
 interface WizardProps {
     settings: Settings
@@ -24,7 +25,7 @@ export interface WizardData {
 
 const Wizard: FC<WizardProps> = ({settings}: WizardProps) => {
     const [step, setStep] = useState(1)
-    const [data, setData] = useState({} as WizardData)
+    const [data, setData] = useState({province: '', email: '', letters: [], uuid: uuidv4()} as WizardData)
 
     const handleForward = () => {
         if (step < 3) {
@@ -51,7 +52,15 @@ const Wizard: FC<WizardProps> = ({settings}: WizardProps) => {
                             data={data}
                             setData={setData}
                         />
-                        <StepTwo visible={step === 2} onForward={handleForward} onBackward={handleBackward}/>
+                        <StepTwo
+                            minLettersCount={settings.keyLettersFrom}
+                            maxLettersCount={settings.keyLettersTo}
+                            visible={step === 2}
+                            onForward={handleForward}
+                            onBackward={handleBackward}
+                            data={data}
+                            setData={setData}
+                        />
                         <StepThree visible={step === 3} onForward={handleForward} onBackward={handleBackward}/>
                     </Form>
                 </Col>
