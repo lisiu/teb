@@ -7,11 +7,15 @@ php ./composer.phar install
 php ./artisan key:generate
 ```
 
-###RUN APPLICATION
+###RUN APPLICATION  
+```bash
 php ./artisan serve
+```
 
-###RUN TESTS
+###RUN TESTS  
+```bash
 vendor/bin/phpunit
+```
 
 ###DOCUMENTATION
 - API documentation: `public/api.json`
