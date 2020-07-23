@@ -14,3 +14,7 @@ php ./artisan serve
 - describe errors in API documentation
 - how to handle duplicates (now skipped silently)
 - move API endpoints to controllers
+- load indicator
+- form labels - intl
+- AJAX error handling
+- RWD
