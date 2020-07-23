@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from "react-bootstrap/Form";
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 
 interface WizardProps {
     settings: Settings
@@ -61,7 +61,14 @@ const Wizard: FC<WizardProps> = ({settings}: WizardProps) => {
                             data={data}
                             setData={setData}
                         />
-                        <StepThree visible={step === 3} onForward={handleForward} onBackward={handleBackward}/>
+                        <StepThree
+                            minLettersCount={settings.keyLettersFrom}
+                            maxLettersCount={settings.keyLettersTo}
+                            visible={step === 3}
+                            data={data}
+                            onForward={handleForward}
+                            onBackward={handleBackward}
+                        />
                     </Form>
                 </Col>
             </Row>

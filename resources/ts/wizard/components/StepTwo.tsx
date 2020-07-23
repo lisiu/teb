@@ -91,7 +91,7 @@ const StepTwo: FC<Props>
                 <Form.Group className={'was-validated'}>
                     <Form.Group controlId="formGridUuid">
                         <Form.Label>UUID</Form.Label>
-                        <InputGroup className="mb-3">
+                        <InputGroup className="mb-3" >
                             <Form.Control
                                 required
                                 ref={uuidRef}

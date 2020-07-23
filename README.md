@@ -12,9 +12,10 @@ php ./artisan serve
 ###TODO
 - batch processing in queue
 - describe errors in API documentation
-- how to handle duplicates (now skipped silently)
-- move API endpoints to controllers
-- load indicator
-- form labels - intl
+- how to handle key duplicates (now skipped silently)
+- move API endpoints to controllers (?)
+- loading indicators
+- form labels - i18n
 - AJAX error handling
 - RWD
+- warning before batch generation
