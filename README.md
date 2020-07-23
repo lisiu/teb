@@ -2,6 +2,7 @@
 ```bash
 git clone project.url project
 cd project
+cp .env.example .env
 php ./composer.phar install
 php ./artisan serve
 ```

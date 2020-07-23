@@ -57,7 +57,7 @@
     "scripts": {
         "post-install-cmd": [
             "touch database/database.sqlite",
-            "@php artisan migrate"
+            "@php artisan migrate --force"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
