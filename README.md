@@ -1,4 +1,4 @@
-###INSTALLATION
+### INSTALLATION
 ```bash
 git clone project.url project
 cd project
@@ -7,20 +7,20 @@ php ./composer.phar install
 php ./artisan key:generate
 ```
 
-###RUN APPLICATION  
+### RUN APPLICATION  
 ```bash
 php ./artisan serve
 ```
 
-###RUN TESTS  
+### RUN TESTS  
 ```bash
 vendor/bin/phpunit
 ```
 
-###DOCUMENTATION
+### DOCUMENTATION
 - API documentation: `public/api.json`
 
-###TODO
+### TODO
 - batch processing in queue
 - describe errors in API documentation
 - how to handle key duplicates (now skipped silently)
